@@ -5,9 +5,10 @@ const register = async (req, res) => {
   try {
     const savedUser = await db.User.create(req.body);
     console.log(savedUser);
-
-
-
+    return res.status(200).json({
+      "status": 200,
+      "message": "Successful registration!"
+    });
   } catch (err) {
     return res.status(500).json({ 
         "status": 500,
