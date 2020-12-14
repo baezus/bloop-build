@@ -18,4 +18,5 @@ mongoose.connection.on('error', (err) => {
 
 module.exports = {
   Bloop: require('./Bloop'),
+  User: require('./User')
 }
