@@ -37,7 +37,7 @@ const db = require('./models/index');
 //--------------------------------------ROUTES
 
 const routes = require('./routes/');
-app.use('/register', routes.users);
+app.use('/', routes.users);
 
 //------------------------------------WEBSOCKET CONFIG
 

@@ -11,6 +11,22 @@ const register = (req, res) => {
     });
 };
 
+const login = (req, res) => {
+  db.User.findOne({ 'username': req.username },
+  (err, foundUser) => {
+    if (err) return console.log('Could not find username in the login route.', err);
+    else {
+      let isMatch = (foundUser.password === req.password);
+      if (isMatch) {
+        res.send('u made it babe; logged in');
+      } else {
+        res.send('wrong password!');
+      }
+    }
+  });
+}
+
 module.exports = {
-  register
+  register,
+  login
 };
