@@ -12,15 +12,22 @@ const register = (req, res) => {
 };
 
 const login = (req, res) => {
-  db.User.findOne({ 'username': req.username },
+  db.User.findOne({ 'username': req.body.username },
   (err, foundUser) => {
     if (err) return console.log('Could not find username in the login route.', err);
     else {
-      let isMatch = (foundUser.password === req.password);
-      if (isMatch) {
-        res.send('u made it babe; logged in');
+      let isMatch;
+      if (foundUser.password === req.body.password) {
+        isMatch = true;
       } else {
+        isMatch = false;
+      }
+      console.log(foundUser);
+      console.log(req.body);
+      if (!isMatch) {
         res.send('wrong password!');
+      } else {
+        res.send('u made it babe! logged in');
       }
     }
   });
