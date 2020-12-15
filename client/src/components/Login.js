@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-
 import AuthModel from '../models/AuthModel';
-
-const URL = "http://localhost:2737/auth/login";
 
 const Login = () => {
 

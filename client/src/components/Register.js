@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import AuthModel from '../models/AuthModel';
 
-const URL = "http://localhost:2737/auth/register";
 
 const Register = () => {
 
@@ -13,7 +12,7 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    axios.post(URL, {
+    AuthModel.register({
       username,
       password
     }).then((res) => {

@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+function logout() {
+  // setUser(null);
+  localStorage.clear();
+}
+
 function Navbar(props) {
   return (
     <nav>
@@ -14,6 +19,7 @@ function Navbar(props) {
         <li className="navLi">
           <Link to="/register">Register</Link>
         </li>
+        <button className="button" value="Logout" onClick={logout}/>
 
       </ul>
     </nav>
