@@ -37,12 +37,12 @@ const db = require('./models/index');
 //--------------------------------------ROUTES
 
 const routes = require('./routes/');
-app.use('/', routes.users);
+app.use('/auth', routes.users);
 
 //------------------------------------WEBSOCKET CONFIG
 
-let connectedUsers = [];
-let sentMessages = [];
+// let connectedUsers = [];
+// let sentMessages = [];
 
 // io.on('connection', socket => {
 //   const { id } = socket.client;
