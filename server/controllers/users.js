@@ -46,7 +46,7 @@ const login = async (req, res) => {
           status: 200,
           message: "Success",
           id: foundUser._id,
-          signedJwt,
+          signedJwt: signedJwt,
         });
       }
     }

@@ -21,8 +21,6 @@ class AuthModel {
       body: JSON.stringify(data),
     }).then((response) => response.json());
   };
-
-  
 }
 
 export default AuthModel;

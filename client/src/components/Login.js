@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import AuthModel from '../models/AuthModel';
+
 const URL = "http://localhost:2737/auth/login";
 
 const Login = () => {
@@ -13,11 +15,12 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    axios.post(URL, {
+    AuthModel.login({
       username,
       password
     }).then((res) => {
       console.log(res);
+      localStorage.setItem("uid", res.signedJwt);
     }
   )};
 
