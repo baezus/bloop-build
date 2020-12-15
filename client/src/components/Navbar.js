@@ -19,7 +19,8 @@ function Navbar(props) {
         <li className="navLi">
           <Link to="/register">Register</Link>
         </li>
-        <button className="button" value="Logout" onClick={logout}/>
+        <button className="button" value="Logout" onClick={logout}>
+          Logout</button>
 
       </ul>
     </nav>

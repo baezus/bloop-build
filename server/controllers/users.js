@@ -42,6 +42,7 @@ const login = async (req, res) => {
       if (!isMatch) {
         res.send('wrong password!');
       } else {
+        console.log(foundUser, signedJwt);
         return res.status(200).json({ 
           status: 200,
           message: "Success",
