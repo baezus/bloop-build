@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AuthModel from '../models/AuthModel';
 
 
-const Register = () => {
+const Register = (props) => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +16,9 @@ const Register = () => {
       username,
       password
     }).then((res) => {
-      console.log(res);
+      if (Response.status === 201) {
+      props.history.push('/register');
+      console.log(res);}
     }
   )};
 

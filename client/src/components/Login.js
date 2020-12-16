@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import AuthModel from '../models/AuthModel';
+import UserModel from '../models/UserModel';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { userState } from '../recoil/atoms.js';
 
-const Login = () => {
+const Login = (props) => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const user = useRecoilValue(userState);
 
   const onUsernameChange = e => setUsername(e.target.value)
   const onPasswordChange = e => setPassword(e.target.value)
@@ -17,6 +21,11 @@ const Login = () => {
     }).then((res) => {
       console.log(res);
       localStorage.setItem("uid", res.signedJwt);
+      UserModel.show().then((res) => {
+        setUser(res.data);
+        props.history.push('/user');
+        console.log(res);
+      });
     }
   )};
 
