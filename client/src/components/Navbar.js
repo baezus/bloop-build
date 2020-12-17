@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../recoil/UserState';
 
-function logout() {
-  // setUser(null);
-  localStorage.clear();
-}
+
 
 function Navbar(props) {
+  
+  const [userInfo, setUserInfo] = useContext(UserContext);
+
+  const logout = () => {
+    localStorage.clear();
+    setUserInfo(userInfo => ({ signedIn: false, username: '' }));
+  }
+
   return (
     <nav>
       <ul>
