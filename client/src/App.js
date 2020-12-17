@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import routes from './config/routes';
 import './App.css';
 import { UserContext } from './recoil/UserState';
+import './styles/bloop.scss';
 
 function App() {
 
@@ -11,8 +12,17 @@ function App() {
   return (
     <UserContext.Provider value={[ userInfo, setUserInfo ]}>
     <div className="App">
-      <Navbar />
-      { routes }
+      
+      <section className="hero is-fullheight is-success has-background-pink second-section">
+          <Navbar />
+        <div className="hero-body">
+          { routes }
+        </div>
+        <div className="hero-foot">
+          <p>hey baby</p>
+        </div>
+      
+      </section>
     </div>
     </UserContext.Provider>
   );

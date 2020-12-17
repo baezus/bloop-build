@@ -2,9 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../recoil/UserState';
 
-
-
-function Navbar(props) {
+function Navbar() {
   
   const [userInfo, setUserInfo] = useContext(UserContext);
 

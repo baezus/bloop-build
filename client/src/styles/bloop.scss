@@ -1,0 +1,67 @@
+@charset "utf-8";
+@import "./variables.scss";
+
+@import "../../node_modules/bulma/bulma.sass";
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+.App {
+  min-width: 100%;
+}
+
+.hero-body, .section {
+  padding: 3rem 1.5rem;
+}
+
+button.button {
+  margin-left: 4rem;
+  font-weight: 700;
+}
+
+.hero-body {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.hero {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background: radial-gradient(farthest-corner at 80px 35px, #8b6d9c, #8b6d9c, #8b6d9c, #494d7e, #272744);
+}
+
+.hero.is-success .title {
+  color: $accentBright;
+  margin-top: 3rem;
+  margin-left: 5rem;
+  font-weight: 850;
+}
+
+.hero.is-success .subtitle {
+  color: $accentLight;
+  margin-left: 5rem;
+  font-weight: 700;
+}
+
+nav.breadcrumb.is-right.is-large.has-bullet-separator {
+  margin-right: 5rem;
+  margin-bottom: 3rem;
+}
+
+a.nav-link {
+  color: $accentLight;
+  text-decoration: none;
+  font-weight: 850;
+}
+
+a.nav-link:hover {
+  color: $accentBright;
+  text-decoration: none;
+  font-weight: 850;
+}

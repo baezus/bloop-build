@@ -6,11 +6,11 @@ const port = process.env.PORT || 2737;
 const cors = require('cors');
 const app = express();
 const server = http.createServer(app);
-// const io = require('socket.io')(server, {
-//   cors: {
-//     origin: '*'
-//   }
-// });
+const io = require('socket.io')(server, {
+  cors: {
+    origin: '*'
+  }
+});
 
 app.use(express.static(__dirname + '/static'))
 app.use(express.static('static'))
@@ -41,29 +41,29 @@ app.use('/auth', routes.users);
 
 //------------------------------------WEBSOCKET CONFIG
 
-// let connectedUsers = [];
-// let sentMessages = [];
+let connectedUsers = [];
+let sentMessages = [];
 
-// io.on('connection', socket => {
-//   const { id } = socket.client;
-//   console.log(`User connected: ${id}`);
-//   connectedUsers.push(id);
-//   console.log(`Current users: `, connectedUsers);
+io.on('connection', socket => {
+  const { id } = socket.client;
+  console.log(`User connected: ${id}`);
+  connectedUsers.push(id);
+  console.log(`Current users: `, connectedUsers);
 
-//   socket.on('chat message', ({ nickname, msg }) => {
-//     sentMessages.push({ nickname, msg });
-//     db.Bloop.create({ 'sender': nickname, 'content': msg })
-//       .then((savedBloop) => {
-//         console.log('saved Bloop: ', savedBloop);
-//       })
-//       .catch((err) => {
-//         console.log('Error in the controllers create', err);
-//         res.json({ Error: 'Unable to create the bloop.'});
-//       });
-//     console.log('submitted a chat; sentMessages: ', sentMessages);
-//     io.emit('chat message', { nickname, msg });
-//   });
-// });
+  socket.on('chat message', ({ nickname, msg }) => {
+    sentMessages.push({ nickname, msg });
+    db.Bloop.create({ 'sender': nickname, 'content': msg })
+      .then((savedBloop) => {
+        console.log('saved Bloop: ', savedBloop);
+      })
+      .catch((err) => {
+        console.log('Error in the controllers create', err);
+        res.json({ Error: 'Unable to create the bloop.'});
+      });
+    console.log('submitted a chat; sentMessages: ', sentMessages);
+    io.emit('chat message', { nickname, msg });
+  });
+});
 
 //------------------------------------SERVER LISTEN
 
