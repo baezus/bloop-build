@@ -5,7 +5,6 @@ import { UserContext } from '../recoil/UserState';
 const socket = io.connect('http://localhost:2737');
 
 
-
 class Bloop extends React.Component {
 
   constructor(props) {
@@ -17,6 +16,7 @@ class Bloop extends React.Component {
   }
 
   componentDidMount() {
+    
     socket.on('chat message', ({ nickname, msg }) => {
       this.setState({
         chat: [...this.state.chat, { nickname, msg }]
@@ -30,7 +30,7 @@ class Bloop extends React.Component {
 
   onMessageSubmit = () => {
     const { msg } = this.state;
-    const { nickname } = 'pep';
+    const { nickname } = this.state;
     socket.emit('chat message', { nickname, msg });
     
     this.setState({ msg: '' });
@@ -59,6 +59,18 @@ class Bloop extends React.Component {
       <div className = "bloopBox message-body"> 
         <div className="container">{this.renderChat()}
       
+        <div className="field">
+          <div className="control">
+            <input 
+            className="nickname"
+            type="text"
+            id="nickname"
+            name="nickname"
+            onChange={e => this.onTextChange(e)}
+            value = {this.state.nickname}
+            />
+          </div>
+        </div>
         <div className="field">
           <div className="control">
           <textarea
