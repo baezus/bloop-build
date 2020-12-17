@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import AuthModel from '../models/AuthModel';
 import UserModel from '../models/UserModel';
-import { useSetRecoilState, useRecoilValue } from 'recoil';
-import { userState } from '../recoil/atoms.js';
+import { UserContext } from '../recoil/UserState';
 
 const Login = (props) => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const user = useRecoilValue(userState);
+  const [userInfo, setUserInfo] = useContext(UserContext);
 
   const onUsernameChange = e => setUsername(e.target.value)
   const onPasswordChange = e => setPassword(e.target.value)
@@ -22,7 +21,6 @@ const Login = (props) => {
       console.log(res);
       localStorage.setItem("uid", res.signedJwt);
       UserModel.show().then((res) => {
-        setUser(res.data);
         props.history.push('/user');
         console.log(res);
       });
@@ -51,7 +49,12 @@ const Login = (props) => {
 
       <div className="field">
           <label className="label">Submit</label>
-          <input type="submit" className="button" name="submit"/>
+          <input 
+          type="submit" 
+          className="button" 
+          name="submit"
+          onClick={()=>{setUserInfo(userInfo => ({ signedIn: true, username: username }
+          ))}}/>
       </div>
     </form>
   </div>
