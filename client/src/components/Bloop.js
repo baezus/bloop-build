@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/bloopbox.scss';
 import io from 'socket.io-client';
-
+import { UserContext } from '../recoil/UserState';
 const socket = io.connect('http://localhost:2737');
+
+
 
 class Bloop extends React.Component {
 
@@ -28,7 +30,7 @@ class Bloop extends React.Component {
 
   onMessageSubmit = () => {
     const { msg } = this.state;
-    const { nickname } = this.props.user;
+    const { nickname } = 'pep';
     socket.emit('chat message', { nickname, msg });
     
     this.setState({ msg: '' });
