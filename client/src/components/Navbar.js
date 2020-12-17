@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../recoil/UserState';
+import '../styles/bloop.scss';
 
 function Navbar() {
   
@@ -15,13 +16,16 @@ function Navbar() {
     <nav>
       <ul>
         <li className="navLi">
-          <Link to="/">Home</Link>
+          <Link to="/">home</Link>
         </li>
         <li className="navLi">
-          <Link to="/login">Login</Link>
+          <Link to="/login">login</Link>
         </li>
         <li className="navLi">
-          <Link to="/register">Register</Link>
+          <Link to="/register">register</Link>
+        </li>
+        <li className="navLi">
+          <Link to="/bloop">bloop</Link>
         </li>
         <button className="button" value="Logout" onClick={logout}>
           Logout</button>

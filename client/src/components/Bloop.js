@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import '../styles/bloopbox.scss';
 import io from 'socket.io-client';
 import { UserContext } from '../recoil/UserState';
 const socket = io.connect('http://localhost:2737');
-
 
 class Bloop extends React.Component {
 
@@ -61,6 +60,7 @@ class Bloop extends React.Component {
       
         <div className="field">
           <div className="control">
+            Nickname: 
             <input 
             className="nickname"
             type="text"
@@ -73,6 +73,7 @@ class Bloop extends React.Component {
         </div>
         <div className="field">
           <div className="control">
+            Message: 
           <textarea
             className="textarea is-small is-size-6"
             id="bloopinPut"

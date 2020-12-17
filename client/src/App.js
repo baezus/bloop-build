@@ -19,7 +19,7 @@ function App() {
           { routes }
         </div>
         <div className="hero-foot">
-          <p>hey baby</p>
+          <p>hero foot</p>
         </div>
       
       </section>
