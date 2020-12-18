@@ -14,12 +14,12 @@ function App() {
     <div className="App">
       
       <section className="hero is-fullheight is-success has-background-pink second-section">
-          <Navbar />
+         
         <div className="hero-body">
           { routes }
         </div>
         <div className="hero-foot">
-          <p>hero foot</p>
+          <Navbar />
         </div>
       
       </section>

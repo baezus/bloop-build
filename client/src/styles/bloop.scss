@@ -7,6 +7,7 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
+
 }
 
 .App {
@@ -15,6 +16,8 @@ body {
 
 .hero-body, .section {
   padding: 3rem 1.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
 button.button {
@@ -54,18 +57,23 @@ nav.breadcrumb.is-right.is-large.has-bullet-separator {
   margin-bottom: 3rem;
 }
 
-li.nav-link {
+a {
   text-decoration: none;
 }
 
-a {
+a.footer-link {
   color: $accentLight;
   text-decoration: none;
   font-weight: 850;
 }
 
-li.nav-link:hover {
+a.footer-link:hover {
   color: $accentBright;
   text-decoration: none;
   font-weight: 850;
+}
+
+.hero-foot {
+  justify-content: center;
+  align-items: center;
 }

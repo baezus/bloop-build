@@ -14,18 +14,18 @@ function Navbar() {
 
   return (
     <nav className="breadcrumb is-right is-large has-bullet-separator" aria-label="breadcrumbs">
-      <ul className="nav-list">
+      <ul className="nav-list center">
         <li className="nav-link">
-          <NavLink to="/">home</NavLink>
+          <NavLink className="footer-link" to="/">home</NavLink>
         </li>
         <li className="nav-link">
-          <NavLink to="/login">login</NavLink>
+          <NavLink className="footer-link" to="/login">login</NavLink>
         </li>
         <li className="nav-link">
-          <NavLink to="/register">register</NavLink>
+          <NavLink className="footer-link" to="/register">register</NavLink>
         </li>
         <li className="nav-link">
-          <NavLink to="/bloop">bloop</NavLink>
+          <NavLink className="footer-link" to="/bloop">bloop</NavLink>
         </li>
         <button className="button" value="Logout" onClick={logout}>
           Logout</button>

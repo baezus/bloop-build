@@ -58,7 +58,7 @@ class Bloop extends React.Component {
       
         <div className="field">
           <div className="control">
-            Nickname: 
+            <p className="fieldTitle">Nickname:</p>
             <input 
             className="nickname"
             type="text"
@@ -71,7 +71,7 @@ class Bloop extends React.Component {
         </div>
         <div className="field">
           <div className="control">
-            Message: 
+            <p className="fieldTitle">Message:</p>
           <textarea
             className="textarea is-small is-size-6"
             id="bloopinPut"
