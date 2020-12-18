@@ -1,9 +1,10 @@
 import React from 'react';
+import '../styles/bloop.scss'
 
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to Bloop</h1>
+      <p className="fieldTitle">Bloop</p>
     </div>
   );
 }

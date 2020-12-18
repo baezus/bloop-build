@@ -52,7 +52,7 @@ class Bloop extends React.Component {
     <div className="column is-half">
     <div className="above">
     <div className="message">
-      <div className="message-header is-size-4">Bloop Box</div>
+      <div className="message-header is-size-4">Bloop</div>
       <div className = "bloopBox message-body"> 
         <div className="container">{this.renderChat()}
       
@@ -69,6 +69,7 @@ class Bloop extends React.Component {
             />
           </div>
         </div>
+
         <div className="field">
           <div className="control">
             <p className="fieldTitle">Message:</p>
@@ -81,9 +82,12 @@ class Bloop extends React.Component {
             value={this.state.msg}
           />
           </div>
-          <div className="column is-half">
-          <button className="button is-outlined is-rounded is-small is-size-6" onClick={this.onMessageSubmit}>Bloop</button></div>
         </div>
+        <div className="field">
+          <div className="control">
+          <button className="button is-outlined is-rounded is-small is-size-6" onClick={this.onMessageSubmit}>Bloop</button>
+          </div>
+        </div>   
       </div>
       </div>
     </div>
