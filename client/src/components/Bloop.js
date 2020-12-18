@@ -1,7 +1,10 @@
 import React, { useEffect, useContext } from 'react';
+import Session from 'react-session-api';
 import '../styles/bloopbox.scss';
 import io from 'socket.io-client';
 import { UserContext } from '../recoil/UserState';
+import BloopModel from '../models/BloopModel';
+
 const socket = io.connect('http://localhost:2737');
 
 class Bloop extends React.Component {
@@ -15,7 +18,6 @@ class Bloop extends React.Component {
   }
 
   componentDidMount() {
-    
     socket.on('chat message', ({ nickname, msg }) => {
       this.setState({
         chat: [...this.state.chat, { nickname, msg }]
@@ -31,7 +33,6 @@ class Bloop extends React.Component {
     const { msg } = this.state;
     const { nickname } = this.state;
     socket.emit('chat message', { nickname, msg });
-    
     this.setState({ msg: '' });
   };
 
@@ -41,7 +42,6 @@ class Bloop extends React.Component {
       <div key={idx}>
         <div className="sentBlooper">
         <span className="blooper is-size-6">{nickname} </span>
-
         <span className="sentBloop is-size-6">{msg}</span>
       </div>
       </div>

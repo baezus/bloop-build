@@ -6,6 +6,8 @@ const port = process.env.PORT || 2737;
 const cors = require('cors');
 const app = express();
 const server = http.createServer(app);
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const io = require('socket.io')(server, {
   cors: {
     origin: '*'
@@ -29,6 +31,12 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+  secret: 'bolobrazy',
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ url: process.env.MONGODB_URI }),
+}))
 
 //--------------------------------------MONGODB/MONGOOSE
 
@@ -38,6 +46,7 @@ const db = require('./models/index');
 
 const routes = require('./routes/');
 app.use('/auth', routes.users);
+app.use('/bloop', routes.bloops)
 
 //------------------------------------WEBSOCKET CONFIG
 
