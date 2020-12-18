@@ -1,9 +1,7 @@
 import React, { useEffect, useContext } from 'react';
-import Session from 'react-session-api';
 import '../styles/bloopbox.scss';
 import io from 'socket.io-client';
-import { UserContext } from '../recoil/UserState';
-import BloopModel from '../models/BloopModel';
+
 
 const socket = io.connect('http://localhost:2737');
 

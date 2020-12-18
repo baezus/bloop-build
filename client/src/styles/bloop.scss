@@ -54,13 +54,17 @@ nav.breadcrumb.is-right.is-large.has-bullet-separator {
   margin-bottom: 3rem;
 }
 
-a.nav-link {
+li.nav-link {
+  text-decoration: none;
+}
+
+a {
   color: $accentLight;
   text-decoration: none;
   font-weight: 850;
 }
 
-a.nav-link:hover {
+li.nav-link:hover {
   color: $accentBright;
   text-decoration: none;
   font-weight: 850;

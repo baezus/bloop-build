@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { UserContext } from '../recoil/UserState';
 import '../styles/bloop.scss';
 
@@ -13,19 +13,19 @@ function Navbar() {
   }
 
   return (
-    <nav>
-      <ul>
-        <li className="navLi">
-          <Link to="/">home</Link>
+    <nav className="breadcrumb is-right is-large has-bullet-separator" aria-label="breadcrumbs">
+      <ul className="nav-list">
+        <li className="nav-link">
+          <NavLink to="/">home</NavLink>
         </li>
-        <li className="navLi">
-          <Link to="/login">login</Link>
+        <li className="nav-link">
+          <NavLink to="/login">login</NavLink>
         </li>
-        <li className="navLi">
-          <Link to="/register">register</Link>
+        <li className="nav-link">
+          <NavLink to="/register">register</NavLink>
         </li>
-        <li className="navLi">
-          <Link to="/bloop">bloop</Link>
+        <li className="nav-link">
+          <NavLink to="/bloop">bloop</NavLink>
         </li>
         <button className="button" value="Logout" onClick={logout}>
           Logout</button>
